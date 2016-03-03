@@ -1,97 +1,38 @@
 <!doctype html>
 <html>
-  <head>
-	<script src="jquery.min.js"></script>
-    <title>PEC for Chrome</title>
-    <style>
-	body {
-		min-width:357px;
-		overflow-x:hidden;
-		font-family: Helvetica, Arial, sans-serif;
-		font-size: 11px;
-	}
-	
-	#spinner {
-		vertical-align:middle;
-		margin-left: 150px;
-	}
-	
-	#raw {
-		display: none;
-	}
-	
-	#pec-updated {
-		
-		font-style: bold;
-	}
-	
-	#democrats-ev {
-		color: blue;
-	}
-	
-	#republicans-ev {
-		color: red;
-	}
-	
-	#container {
-		width: 100%;
-		height: 100%;
-	}
-	
-	#loaded-content {
-		display: none;
-	}
-	
-	#newest-post-time, #newest-post-link {
-	  display: inline;
-	}
-	
-	#banner {
-		font-size: 15px;
-		font-weight: bold;
-		margin-bottom: 5px;
-	}
-	
-	#banner a, #banner a:hover {
-		text-decoration: none;
-		border: none;
-	}
-	
-	#data {
-		margin-left: 5px;
-	}
-	#graph-and-map {
-		margin-left: 15%;
-	}
-	#graph-and-map img {
-		display: inline;
-	}
-    </style>
-    <script src="common.js"></script>
-    <script src="popup.js"></script>
-  </head>
-  <body>
-	<div id="container">
-	<div id="banner">Princeton Election Consortium</div>
-	  <img src="ajax-loader.gif" id="spinner" align="center" border="0" />
-	  <div id="loaded-content">
-		<div id="newest-post">
-		  <div id="newest-post-link"></div> <div id="newest-post-byline"></div>
+	<head>
+		<script src="jquery.min.js"></script>
+		<title>PEC for Chrome</title>
+		<link rel="stylesheet" href="popup.css" />
+		<script src="common.js"></script>
+		<script src="popup.js"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="banner">Princeton Election Consortium</div>
+			<img src="ajax-loader.gif" id="spinner" align="center" border="0" />
+			<div id="loaded-content">
+				<div id="newest-post">
+				<div id="newest-post-link"></div> <div id="newest-post-byline"></div>
+				</div>
+				<br />
+				<div id="pec-updated"></div>
+				<div id="data">
+				<div id="li0"></div>
+				<div id="li1"></div>
+				<div id="li2"></div>
+				<div id="li3"></div>
+				<div id="li4"></div>
+				<div id="li5"></div>
+				</div>
+				<br />
+				<br />
+				<div id="graph-and-map">
+					<img id="graph-image" width="200" />
+					<img id="map-image" width="200" />
+				</div>
+			</div>
+			<div id="raw"></div>
 		</div>
-		<br />
-		<div id="pec-updated"></div>
-		<div id="data">
-			aa<div id="meta-margin"></div>
-			bb<div id="democrats-ev"></div>
-			cc<div id="republicans-ev"></div>
-			dd<div id="reelect"></div>
-		</div>
-		<div id="graph-and-map">
-			<img id="graph-image" width="200" />
-			<img id="map-image" width="200" />
-		</div>
-	  </div>
-	  <div id="raw"></div>
-	</div>
-  </body>
+	</body>
 </html>

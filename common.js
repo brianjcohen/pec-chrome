@@ -1,23 +1,58 @@
+/**
+ * Helper function that will load data from the Princeton Election Consortium's endpoints
+ * and update the extension's HTML pages with the data
+ * 
+ * @returns Void 
+ */
 function updatePECBackground() {
 	updatePEC('background');
 }
+
+
+/**
+ * Helper function that will load data from the Princeton Election Consortium's endpoints
+ * and update the extension's HTML pages with the data
+ * 
+ * 
+ * @returns Void 
+ */
 function updatePECPopup() {
 	updatePEC('popup');
 }
+
+/**
+ * Helper function that will load data from the Princeton Election Consortium's endpoints
+ * and update the extension's HTML pages with the data
+ * 
+ * @param   String target one of 'popup' or 'background'
+ * 
+ * @returns Void 
+ */
 function updatePEC(target) {
+	// the 'current_ev.html' is a microformat page consisting of a UL with a number of child LI elements.
+	// the content of these change with the election season and we may update our formatting below to adjust
 	$("#raw").load("http://election.princeton.edu/wp-content/uploads/autotext/current_ev.html", function() {
-   	
-		var updated = $("#raw li").eq(0).text();	
-		var democrats = $("#raw li").eq(1).text();
-		var republicans = $("#raw li").eq(2).text();
-		var mm = $("#raw li").eq(3).text();
-		var reelect = $("#raw li").eq(5).text();
-		
 		var newestPost = '';
 		var newestPostByline = '';
 		
+		var lidata = new Array();
+		
+		for (i=0; i < 6; i++) {
+			val = $("#raw li").eq(i).text();
+			if (val !='' && val != 'RSS') {
+				lidata[i] = val;
+			}
+		}
+		
 		if (target == 'popup') {
 			
+			for (i=0; i< 6; i++) {
+				if (typeof(lidata[i] != 'undefined')) {
+					$("#li" + i).html(lidata[i]);					
+				}
+			}
+			
+			// load the RSS feed so we can link to the newest post
 			$.get("http://election.princeton.edu/feed", function(data) {
 				var $xml = $(data);
 				$xml.find("item:first").each(function() {
@@ -38,27 +73,28 @@ function updatePEC(target) {
 				});
 			});		
 			
-			//var graph_image_url = 'http://election.princeton.edu/wp-content/uploads/autographics/EV_history-200px.png';
-			//var graph_image_url = 'http://election.princeton.edu/wp-content/uploads/autographics/EV_histogram_today.jpg';
-			var graph_image_url = 'http://election.princeton.edu/wp-content/uploads/autographics/Obama_generic_history.jpg';
 			
-			//var map_image_url = "http://election.princeton.edu/wp-content/uploads/autographics/EV_map-200px.png";
-			//var map_image_url = 'http://election.princeton.edu/wp-content/uploads/autographics/Senate_seat_history.jpg';
+			// graph image
+			var graph_image_url = 'http://election.princeton.edu/wp-content/uploads/autographics/Obama_generic_history.jpg';
 			$("#graph-image").attr("src", graph_image_url);
+			
+			// map image
+			//var map_image_url = "http://election.princeton.edu/wp-content/uploads/autographics/EV_map-200px.png";
 			//$("#map-image").attr("src", map_image_url);
 			
-			$("#pec-updated").html(updated);
-			$("#democrats-ev").html(democrats);
-			$("#republicans-ev").html(republicans);
-			$("#meta-margin").html(mm);
-			$("#reelect").html("<strong>" + reelect + "</strong>");
-			
-			
+			// hide spinner
 			$("#spinner").hide();
+			
+			// reveal the loaded content container
 			$("#loaded-content").show();
 		}
 		
-		chrome.browserAction.setBadgeText({ text: mm.replace("Meta-Margin: ", "").replace("D +","D").replace("R +", "R").replace("%","") });
+		//chrome.browserAction.setBadgeText({ text: mm.replace("Meta-Margin: ", "").replace("D +","D").replace("R +", "R").replace("%","") });
+		
+		var title = lidata[0] + ' ' + lidata[1];
+		var badge = '';
+		chrome.browserAction.setBadgeText({ text: badge });
+		chrome.browserAction.setTitle( { title: title } );
 	
 	});    
 	

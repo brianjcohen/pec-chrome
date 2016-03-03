@@ -1,0 +1,50 @@
+body {
+	min-width:357px;
+	overflow-x:hidden;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 11px;
+}
+
+#spinner {
+	vertical-align:middle;
+	margin-left: 150px;
+}
+
+#raw {
+	display: none;
+}
+
+
+#container {
+	width: 100%;
+	height: 100%;
+}
+
+#loaded-content {
+	display: none;
+}
+
+#newest-post-time, #newest-post-link {
+	display: inline;
+}
+
+#banner {
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+#banner a, #banner a:hover {
+	text-decoration: none;
+	border: none;
+}
+
+#data {
+	margin-left: 5px;
+}
+#graph-and-map {
+	margin-left: 15%;
+}
+#graph-and-map img {
+	display: inline;
+}

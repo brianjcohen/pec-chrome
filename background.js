@@ -1,4 +1,4 @@
-$().ready(function() {
+$(document).ready(function() {
 	// run at load
 	updatePECBackground();
 	
