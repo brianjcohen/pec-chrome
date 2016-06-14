@@ -75,12 +75,12 @@ function updatePEC(target) {
 			
 			
 			// graph image
-			var graph_image_url = 'http://election.princeton.edu/wp-content/uploads/autographics/Obama_generic_history.jpg';
+			var graph_image_url = 'http://election.princeton.edu/wp-content/uploads/autographics/EV_histogram_today-200px.png';
 			$("#graph-image").attr("src", graph_image_url);
 			
 			// map image
-			//var map_image_url = "http://election.princeton.edu/wp-content/uploads/autographics/EV_map-200px.png";
-			//$("#map-image").attr("src", map_image_url);
+			var map_image_url = "http://www.270towin.com/map-images/princeton-election-consortium";
+			$("#map-image").attr("src", map_image_url);
 			
 			// hide spinner
 			$("#spinner").hide();
