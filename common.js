@@ -35,11 +35,11 @@ function updatePEC(target) {
 		var newestPost = '';
 		var newestPostByline = '';
 		
-		var lidata = new Array();
+		var lidata = [];
 		
 		for (i=0; i < 6; i++) {
 			val = $("#raw li").eq(i).text();
-			if (val !='' && val != 'RSS') {
+			if (val !== '' && val !== 'RSS') {
 				lidata[i] = val;
 			}
 		}
@@ -62,9 +62,8 @@ function updatePEC(target) {
 							link: $this.find("link").text(),
 							description: $this.find("description").text(),
 							pubDate: $this.find("pubDate").text(),
-							author: $this.find("creator").text()
-							
-					}
+							author: $this.find("creator").text()	
+						};
 					
 					newestPost = '<a href="' + item.link + '" target="_blank">' + item.title + '</a>';
 					newestPostByline = 'by ' + item.author + ' at ' + item.pubDate;
@@ -89,9 +88,8 @@ function updatePEC(target) {
 			$("#loaded-content").show();
 		}
 		
-		//chrome.browserAction.setBadgeText({ text: mm.replace("Meta-Margin: ", "").replace("D +","D").replace("R +", "R").replace("%","") });
 		
-		var title = lidata[0] + ' ' + lidata[1];
+		var title = lidata[2] + ' ' + lidata[4];
 		var badge = '';
 		chrome.browserAction.setBadgeText({ text: badge });
 		chrome.browserAction.setTitle( { title: title } );
