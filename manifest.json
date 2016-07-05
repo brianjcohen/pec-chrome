@@ -1,6 +1,6 @@
 {
   "name": "Princeton Election Consortium",
-  "version": "1.96",
+  "version": "1.97",
   "manifest_version": 2,
   "description": "Track the Princeton Election Consortium's Meta-Analysis",
   "browser_action": {

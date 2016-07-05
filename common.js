@@ -31,7 +31,7 @@ function updatePECPopup() {
 function updatePEC(target) {
 	// the 'current_ev.html' is a microformat page consisting of a UL with a number of child LI elements.
 	// the content of these change with the election season and we may update our formatting below to adjust
-	$("#raw").load("http://election.princeton.edu/code/output/current_ev.html", function() {
+	$("#raw").load("http://election.princeton.edu/code/output/banner.html", function() {
 		var newestPost = '';
 		var newestPostByline = '';
 		

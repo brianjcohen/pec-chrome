@@ -3,7 +3,7 @@ $(document).ready(function() {
 	updatePECBackground();
 	
 	// set interval at 2 hours
-	var interval = 2 * 60 * 60 * 1000;
+	var interval = 8 * 60 * 60 * 1000;
 	setInterval(updatePECBackground, interval);
 });
 
