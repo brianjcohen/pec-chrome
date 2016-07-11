@@ -78,7 +78,7 @@ function updatePEC(target) {
 			$("#graph-image").attr("src", graph_image_url);
 			
 			// map image
-			var map_image_url = "http://1.1.1.5/bmi/election.princeton.edu/wp-content/uploads/autographics/EV_map.png-white";
+			var map_image_url = "http://election.princeton.edu/wp-content/uploads/autographics/EV_map.png-white";
 			$("#map-image").attr("src", map_image_url);
 			
 			// hide spinner
