@@ -40,10 +40,9 @@ function updatePEC(target) {
 		for (i=0; i < 6; i++) {
 			val = $("#raw li").eq(i).text();
 			if (val !== '' && val !== 'RSS') {
-				lidata[i] = val;
+				lidata.push(val);
 			}
 		}
-		
 		if (target == 'popup') {
 			
 			for (i=0; i< 6; i++) {
@@ -88,8 +87,7 @@ function updatePEC(target) {
 			$("#loaded-content").show();
 		}
 		
-		
-		var title = lidata[2] + ' ' + lidata[4];
+		var title = lidata.join("\n");
 		var badge = '';
 		chrome.browserAction.setBadgeText({ text: badge });
 		chrome.browserAction.setTitle( { title: title } );
